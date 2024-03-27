@@ -1,0 +1,26 @@
+library(dslabs)
+data(heights)
+options(digits=3) # reporte 3 digitos significantes para todas las respuestas
+#altura promedio
+avg <- mean(as.numeric(heights$height))
+avg
+#individuos más altos que el promedio
+ind <- heights$height > avg
+ind <- as.numeric(ind)
+sum(ind)
+#con pipes
+#mas_altos <- heights |> filter(height > avg)
+
+#individuos más alto de promedio y mujeres
+mujeres_altas <- heights |> filter(height > avg & sex == "Female")
+mujeres_altas
+
+#numero de mujeres
+ind2 <- heights$sex == "Female"
+ind2 <- as.numeric(ind2)
+total_mujeres <- sum(ind2)
+#total de variables
+str(heights)
+#Porcentaje de mujeres en el data frame
+porcentaje_mujeres = total_mujeres/1050
+porcentaje_mujeres
